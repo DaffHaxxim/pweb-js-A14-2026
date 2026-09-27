@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masuk - Mini Shopee</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <script src="js/login.js" defer></script>
+  </head>
+  <body>
+    <main class="login-page">
+      <!-- kartu login -->
+      <section class="login-card">
+        <p class="brand">Mini <span>Shopee</span></p>
+        <h1>Masuk ke akunmu</h1>
+        <p class="subtitle">Gunakan username &amp; password akunmu.</p>
+
+        <!-- form login -->
+        <form id="login-form" class="login-form" novalidate>
+          <div class="field">
+            <label for="username">Username</label>
+            <input id="username" class="input" type="text" name="username" autocomplete="username" />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input id="password" class="input" type="password" name="password" autocomplete="current-password" />
+              <button id="toggle-password" class="toggle-password" type="button" aria-label="Tampilkan password">Lihat</button>
+            </div>
+          </div>
+
+          <p id="login-error" class="alert" role="alert" hidden></p>
+
+          <button id="login-button" class="btn btn-primary btn-block" type="submit">
+            <span class="spinner" hidden></span>
+            <span class="btn-label">Masuk</span>
+          </button>
+        </form>
+
+        <!-- akun demo -->
+        <p class="demo-hint">Akun demo: <code>emilys</code> / <code>emilyspass</code></p>
+      </section>
+    </main>
+  </body>
+</html>

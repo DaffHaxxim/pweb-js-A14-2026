@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katalog - Mini Shopee</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/catalog.css" />
+    <script src="js/catalog.js" defer></script>
+  </head>
+  <body class="is-guarded">
+    <!-- navbar -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a class="logo" href="index.html">Mini <span>Shopee</span></a>
+
+        <div class="search">
+          <input id="search-input" class="search-input" type="search" placeholder="Cari produk atau kategori..." aria-label="Cari produk" autocomplete="off" />
+        </div>
+
+        <div class="nav-actions">
+          <span id="greeting" class="greeting"></span>
+          <button id="cart-button" class="nav-btn cart-button" type="button" aria-label="Buka keranjang">
+            Keranjang
+            <span id="cart-badge" class="cart-badge">0</span>
+          </button>
+          <button id="logout-button" class="nav-btn" type="button">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="catalog">
+      <!-- toolbar -->
+      <section class="toolbar" aria-label="Filter dan urutan">
+        <div class="toolbar-group">
+          <label for="category-select">Kategori</label>
+          <select id="category-select" class="select">
+            <option value="all">Semua Kategori</option>
+          </select>
+        </div>
+
+        <p id="result-count" class="result-count"></p>
+
+        <div class="toolbar-group">
+          <label for="sort-select">Urutkan</label>
+          <select id="sort-select" class="select">
+            <option value="default">Rekomendasi</option>
+            <option value="price-asc">Harga: Termurah</option>
+            <option value="price-desc">Harga: Termahal</option>
+            <option value="rating-desc">Rating Tertinggi</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- status -->
+      <div id="loading-state" class="product-grid" aria-label="Memuat produk" hidden></div>
+
+      <section id="error-state" class="state-box state-error" role="alert" hidden>
+        <h2>Gagal memuat produk</h2>
+        <p id="error-message">Terjadi kesalahan saat mengambil data dari server.</p>
+        <button id="retry-button" class="btn btn-primary" type="button">Coba lagi</button>
+      </section>
+
+      <section id="empty-state" class="state-box" hidden>
+        <h2>Produk tidak ditemukan</h2>
+        <p>Coba kata kunci atau kategori lain.</p>
+      </section>
+
+      <!-- grid produk -->
+      <section id="product-grid" class="product-grid" aria-label="Daftar produk"></section>
+
+      <div class="load-more-wrap">
+        <button id="load-more" class="btn btn-ghost load-more" type="button" hidden>Load More</button>
+      </div>
+    </main>
+
+    <!-- keranjang -->
+    <div id="cart-overlay" class="cart-overlay" hidden></div>
+    <aside id="cart-drawer" class="cart-drawer" aria-label="Keranjang belanja" aria-hidden="true">
+      <div class="cart-head">
+        <h2>Keranjang</h2>
+        <button class="icon-btn" type="button" data-action="close" aria-label="Tutup keranjang">&times;</button>
+      </div>
+
+      <ul id="cart-list" class="cart-list"></ul>
+      <p id="cart-empty" class="cart-empty">Keranjang masih kosong.</p>
+
+      <div class="cart-foot">
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cart-total">$0.00</strong>
+        </div>
+        <button class="btn btn-ghost btn-block" type="button" data-action="clear">Kosongkan</button>
+      </div>
+    </aside>
+
+    <!-- modal detail -->
+    <dialog id="product-modal" class="modal" aria-labelledby="modal-title">
+      <div class="modal-body">
+        <button class="icon-btn modal-close" type="button" data-action="close" aria-label="Tutup detail">&times;</button>
+
+        <div class="modal-media">
+          <span id="modal-discount" class="discount-badge"></span>
+          <img id="modal-image" src="" alt="" />
+        </div>
+
+        <div class="modal-info">
+          <span id="modal-category" class="chip"></span>
+          <h2 id="modal-title"></h2>
+          <p class="modal-brand">Brand: <strong id="modal-brand"></strong></p>
+
+          <div class="modal-price-row">
+            <span id="modal-price" class="modal-price"></span>
+            <s id="modal-original" class="modal-original"></s>
+            <span id="modal-rating" class="rating"></span>
+          </div>
+
+          <p class="modal-stock">Stok tersedia: <strong id="modal-stock"></strong></p>
+          <p id="modal-description" class="modal-description"></p>
+
+          <button id="modal-add" class="btn btn-primary btn-block" type="button" data-action="add">Tambahkan ke Keranjang</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- toast -->
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

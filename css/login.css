@@ -1,0 +1,103 @@
+/* layout halaman */
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+/* kartu login */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 28px 24px;
+  border: 2px solid var(--line-strong);
+  border-top: 8px solid var(--yellow);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  display: inline-block;
+  margin: 0 0 20px;
+  padding: 4px 10px;
+  background: var(--bar);
+  color: var(--bar-ink);
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.brand span {
+  color: var(--yellow);
+}
+
+.login-card h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin: 6px 0 24px;
+  color: var(--muted);
+}
+
+/* form login */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-form .btn {
+  margin-top: 4px;
+  padding: 12px;
+}
+
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap .input {
+  padding-right: 88px;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 4px 8px;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--brown);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.toggle-password:hover {
+  background: var(--line);
+}
+
+/* akun demo */
+.demo-hint {
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.demo-hint code {
+  padding: 1px 6px;
+  border: 1px solid var(--line);
+  background: var(--surface-alt);
+  color: var(--ink);
+}
